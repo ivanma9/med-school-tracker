@@ -1,32 +1,29 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute, ConditionalRoute } from '../util/route';
+import { Route, Switch, BrowserRouter as Router, Link } from 'react-router-dom';
 
-import NavBar from './Navbar';
+import NavBar from './components/Navbar';
+import Home from './components/Home';
 
 
-export default () => (
-  <>
-    <ConditionalRoute exact path="/" />
-    <Switch>
-      <AuthRoute path="/login" component={WelcomeLogin} />
-      <AuthRoute path="/signup" component={Signup} />
-      <>
-        <NavBar />
-        <ProtectedRoute path="/dashboard" component={Dashboard} />
-        <Route
-          path="/recipes"
-          render={({ match: { url } }) => (
-            <>
-              <ProtectedRoute path={`${url}/`} component={RecipesList} exact />
-              <ProtectedRoute path={`${url}/view`} component={ViewRecipe} />
-              <ProtectedRoute path={`${url}/create`} component={CreateRecipe} />
-              <ProtectedRoute path={`${url}/edit`} component={EditRecipe} />
-              <ProtectedRoute path={`${url}/my-recipes`} component={MyRecipes} />
-            </>
-          )}
-        />
-      </>
-    </Switch>
-  </>
-);
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <NavBar/>
+
+        <hr />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <Home />
+          </Route>
+          <Route path="/dashboard">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}

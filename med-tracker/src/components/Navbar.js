@@ -3,6 +3,7 @@ import React from 'react';
 import { Button, Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
+import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 
 
 export default function NavBar({ logout }) {
@@ -31,9 +32,9 @@ export default function NavBar({ logout }) {
                 color: 'white',
               }}
             >
-              Meal Planana
+              Med School Tracker
             </Typography>
-            <img src={BananaBunch} alt="Logo" style={{ width: '2em', marginBottom: '0.6em' }} />
+            <LocalHospitalIcon color="secondary"/>
           </Link>
         </Navbar.Brand>
         <Navbar expand="lg">
@@ -57,7 +58,7 @@ export default function NavBar({ logout }) {
                     fontSize: 25,
                   }}
                 >
-                  Recipes
+                  Schools
                 </Typography>
               </Nav.Link>
               <Nav.Link to="/recipes/my-recipes" as={Link}>
@@ -67,7 +68,7 @@ export default function NavBar({ logout }) {
                     fontSize: 25,
                   }}
                 >
-                  My Recipes
+                  My Schools
                 </Typography>
               </Nav.Link>
             </Nav>
