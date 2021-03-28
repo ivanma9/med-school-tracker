@@ -17,7 +17,7 @@ export default function NavBar({ logout }) {
           }}
         >
           <Link
-            to="/dashboard"
+            to="/"
             className="navbar-brand"
             style={{
               display: 'inline', alignItems: 'center', justifyContent: 'center', paddingTop: '0.4em',
@@ -51,14 +51,14 @@ export default function NavBar({ logout }) {
                   Dashboard
                 </Typography>
               </Nav.Link>
-              <Nav.Link to="/recipes" as={Link}>
+              <Nav.Link to="/about" as={Link}>
                 <Typography
                   variant="button"
                   style={{
                     fontSize: 25,
                   }}
                 >
-                  Schools
+                  About
                 </Typography>
               </Nav.Link>
               <Nav.Link to="/recipes/my-recipes" as={Link}>
