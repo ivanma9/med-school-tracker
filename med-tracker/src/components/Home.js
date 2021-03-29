@@ -11,6 +11,7 @@ import {
 	AccordionSummary,
 	AccordionDetails,
 	Button,
+	Slider,
 } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -175,7 +176,11 @@ export default function Home() {
 								style={{ width: 300 }}
 								onChange={(e, value) => setState(value)}
 								renderInput={(params) => (
-									<TextField {...params} label="Choose State" variant="outlined" />
+									<TextField
+										{...params}
+										label="Choose State"
+										variant="outlined"
+									/>
 								)}
 							/>
 							<h1> {} </h1>
@@ -200,11 +205,15 @@ export default function Home() {
 						</Typography>
 					</AccordionSummary>
 					<AccordionDetails>
-						<Typography>
-							Donec placerat, lectus sed mattis semper, neque lectus feugiat
-							lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-							laoreet laoreet.
-						</Typography>
+						<Container>
+							<Slider
+								defaultValue={80}
+								aria-labelledby="discrete-slider-always"
+								min={427}
+								max={528}
+								valueLabelDisplay="on"
+							/>
+						</Container>
 					</AccordionDetails>
 					<AccordionActions>
 						<Button onClick={handleChange("panel1")}>Confirm</Button>
