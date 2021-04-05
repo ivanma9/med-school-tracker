@@ -19,7 +19,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
-import { blue } from "@material-ui/core/colors";
+import Plot from "react-function-plot";
 
 const top100Schools = [
 	{ school: "Harvard", mcat: 500, gpa: 3.8 },
@@ -124,6 +124,8 @@ export default function Home() {
 		console.log(mcat);
 		setExpanded(isExpanded ? panel : false);
 	};
+
+
 	return (
 		<div>
 			{/* <h1> bruhopop </h1>
@@ -206,8 +208,16 @@ export default function Home() {
 					</AccordionSummary>
 					<AccordionDetails>
 						<Container>
+							<Plot
+								className="myPlot"
+								fn={
+									new Function(5 * Math.E(-Math.pow(x / 2, 2))) /
+									Math.sqrt(2 * Math.PI)
+								}
+								thickness={4}
+							/>
 							<Slider
-								defaultValue={80}
+								defaultValue={500}
 								aria-labelledby="discrete-slider-always"
 								min={427}
 								max={528}
